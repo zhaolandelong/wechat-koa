@@ -1,4 +1,6 @@
 const sha1 = require('sha1');
+const xml2js = require('xml2js')
+
 const config = require('../config');
 
 module.exports = {
@@ -20,7 +22,18 @@ module.exports = {
     },
     'POST /wechat': async (ctx, next) => {
         let { access_token } = config.wechat;
-        console.log(access_token)
-        ctx.body = `Hello post wechat ${access_token}`;
+        let msg = ctx.req.body.xml;
+        console.log(msg);
+        let data = {
+            xml: {
+                ToUserName: msg.FromUserName,
+                FromUserName: msg.ToUserName,
+                CreateTime: Date.now(),
+                MsgType: msg.MsgType,
+                Content: msg.Content
+            }
+        };
+        ctx.res.setHeader('Content-Type', 'application/xml');
+        ctx.res.end(new xml2js.Builder().buildObject(data));
     }
 };

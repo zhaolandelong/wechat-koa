@@ -3,9 +3,15 @@ const bodyParser = require('koa-bodyparser');
 const wechat = require('co-wechat');
 
 const router = require('./router');
+const xmlParse = require('./middlewares/xmlParse');
 
 const app = new Koa();
 app.use(bodyParser());
+
+app.use(xmlParse());
+
+app.use(router.routes());
+
 // x-response-time
 
 // app.use(async (ctx, next) => {
@@ -33,11 +39,11 @@ app.use(bodyParser());
 // });
 
 // response
-const config = {
-    token: 'zldl',
-    appid: 'wxc04ca1666d781d0a',
-    encodingAESKey: ''
-};
+// const config = {
+//     token: 'zldl',
+//     appid: 'wxc04ca1666d781d0a',
+//     encodingAESKey: ''
+// };
 // app.use(wechat(config).middleware(async (message, ctx) => {
 //     console.log(ctx)
 //     // 微信输入信息就是这个 message
@@ -79,6 +85,5 @@ const config = {
 //         ];
 //     }
 // }));
-app.use(router.routes());
 
 app.listen(7001);
