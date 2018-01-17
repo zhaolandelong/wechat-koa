@@ -23,7 +23,7 @@ module.exports = {
     'POST /wechat': async (ctx, next) => {
         let { access_token } = config.wechat;
         let msg = ctx.req.body.xml;
-        console.log(msg);
+        // console.log(msg);
         let data = {
             xml: {
                 ToUserName: msg.FromUserName,
