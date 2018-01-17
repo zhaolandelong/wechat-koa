@@ -6,9 +6,9 @@ const router = require('./router');
 const xmlParse = require('./middlewares/xmlParse');
 
 const app = new Koa();
-app.use(bodyParser());
+// app.use(bodyParser());
 
-app.use(xmlParse());
+// app.use(xmlParse());
 
 app.use(router.routes());
 

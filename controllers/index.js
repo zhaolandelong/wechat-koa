@@ -1,6 +1,8 @@
 const request = require('request');
 const config = require('../config');
 
+const wechat = require('co-wechat');
+
 module.exports = {
     'GET /': async (ctx, next) => {
         // let { appid, secret, prefix,access_token } = config.wechat;
@@ -36,6 +38,21 @@ module.exports = {
         // request.post(`${prefix}/menu/create?access_token=${access_token}`,{json},(err,httpResponse,body)=>{
         //     console.log(err,httpResponse,body)
         // });
-        ctx.body = 'Hello world';
+        // wechat({
+        //     token: 'zldl',
+        //     appid: 'wxc04ca1666d781d0a',
+        //     encodingAESKey: ''
+        //   }).middleware
+        let data = wechat({
+            token: 'zldl',
+            appid: 'wxc04ca1666d781d0a',
+            encodingAESKey: ''
+          }).middleware(async (message, ctx) => {
+            // TODO
+            console.log(message,ctx)
+            return 'hehe';
+          });
+        console.log(data)
+        ctx.body = data.toString();
     }
 };

@@ -31,8 +31,8 @@ async function getToken() {
     console.log(`getToken finish, access_token: ${data.access_token}`);
 };
 
-getToken();
-setInterval(getToken, 7000000);
+// getToken();
+// setInterval(getToken, 7000000);
 
 module.exports = {
     wechat
