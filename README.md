@@ -1,3 +1,6 @@
+# koa2 + co-wechat快速搭建微信公众号对接服务
+更多内容详见[个人博客](http://blog.csdn.net/zhaolandelong/article/details/79086077)
+
 ### 参考文献
 
 *[使用koa2对接微信公众平台](https://www.jianshu.com/p/7a4ba7f752f1)
