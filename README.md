@@ -11,8 +11,11 @@
 ### 准备工作
 
 *外网可访问的服务器地址，可利用花生壳代理到本地，方便开发调试（参考[微信后台开发第一步：nodeJS+express接入微信后台详细教程](https://www.cnblogs.com/xuange306/p/4971702.html)）
+
 *测试公众号，可用微信公众平台提供的测试号（[接口测试号申请](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421137522)）
+
 *node v7.6.0以上，koa2依赖async（[koa中文官网](https://koa.bootcss.com/)）
+
 *把测试公众号的二维码发给你的ta，启动服务后开撩
 
 ### 初始化项目并安装依赖
